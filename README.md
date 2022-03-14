@@ -1,24 +1,37 @@
-# README
+# Anime_thoughts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+アニメの評価サイト。
+本サイトはuserが見たアニメを評価してそれがどんなアニメなのかを第三者が確認できるサイトです。
+本サイトはアニメのタイトルと感想を投稿できるサイトです。
+誰でも簡単に好きなアニメの評価をして第三者と共有することが出来ます。
 
-Things you may want to cover:
+### サイトテーマ
+簡単に新規登録をしてログインすれば、誰でも簡単に自分が好きなアニメの評価が作成できます。
 
-* Ruby version
+### テーマを選んだ理由
+私はアニメが好きなので、自分の好きなアニメを評価して第三者に提供し、自分に合ったアニメを見つけることが出来たら
+良いなと思い本サイトを作成致しました。
 
-* System dependencies
+### ターゲットユーザ
+アニメが好きな人及びアニメを見てみようかなと思う人
 
-* Configuration
+### 主な利用シーン
+アニメの評価をしてその評価を第三者に提供する時
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
