@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-3 mr-5">
+      <%= render "shared/mypage" %>
+    </div>
+    <div class="col-md-8">
+      <h2 class="d-flex justify-content-center mt-5 mb-3">ユーザー覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>profile_image</th>
+            <th>user_name</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_index.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%" %></td>
+              <td><%= user.name %></td>
+              <td></td>
+              <td><%= link_to "#{user.name}さんが見たアニメ", root_path, class: "btn btn-sm btn-primary" %></td>
+              <td><%= link_to "プロフィール", profile_users_path(user.id), class: "btn btn-sm btn-secondary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

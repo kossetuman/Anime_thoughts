@@ -22,6 +22,9 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f0f0e0;
+}
 // headerのcss
 .header-top-line {
   width: 100%;
@@ -31,6 +34,11 @@
 
 .header-middle {
   padding-bottom: 5px;
+  background-color: white;
+}
+
+.header-middle-contents {
+  font-family: "HanziPen SC", sans-serif;
 }
 
 .header-bottom {
@@ -56,3 +64,9 @@
 .nav-color {
   color: white;
 }
+
+//新規登録画面のcss
+.signup-bg-color {
+  background-color: #f0f2f5;
+}
+
