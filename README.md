@@ -10,7 +10,7 @@
 新規登録をしてログインすれば、誰でも簡単に自分が好きなアニメの評価が作成できます。
 
 ### テーマを選んだ理由
-私はアニメが好きなので、自分の好きなアニメを評価して第三者に提供し、自分に合ったアニメを見つけることが出来たら
+私はアニメが好きなので、自分の好きなアニメを評価して他者と共有し、自分に合ったアニメを見つけることが出来たら
 良いなと思い本サイトを作成致しました。
 
 ### ターゲットユーザ
@@ -24,7 +24,7 @@
 <...>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8mlTg/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
