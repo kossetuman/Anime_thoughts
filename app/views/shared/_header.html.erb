@@ -1,21 +1,18 @@
-
+<div class="header sticky-top">
   <div class="row header-top">
     <div class="header-top-line"></div>
   </div>
-</div>
-
    <div class="header-middle">
      <div class="header-middle-contents">
-       <h1>Anime_thoughts</h1>
+       <h1 class="text-center">Anime_thoughts</h1>
      </div>
    </div>
-
    <div class="header-bottom">
      <div class="header-bottom-line">
        <ul class="header-nav">
          <% if user_signed_in? %>
           <li>
-            <%= link_to "Home", root_path, class: "nav-color" %>
+            <%= link_to "Home", user_path(current_user), class: "nav-color" %>
           </li>
           <li>
             <%= link_to "Users", users_path, class: "nav-color" %>
@@ -27,7 +24,7 @@
             <%= link_to "Animes", animes_path, class: "nav-color" %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-color" %>
+            <%= link_to "Signout", destroy_user_session_path, method: :delete, data: { confirm: "サインアウトしますか？"}, class: "nav-color" %>
           </li>
          <% else %>
           <li>

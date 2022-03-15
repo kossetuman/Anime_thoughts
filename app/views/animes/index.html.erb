@@ -1,29 +1,10 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-3 mr-5">
-      <%= form_with model: @anime, local: true do |f| %>
-        <div class="form-group">
-          <label for="title">タイトル</label>
-            <%= f.text_field :title, autfoucus: true, placeholder: "アニメのタイトルを入力して下さい", class: "form-control" %>
-        </div>
-
-         <div class="form-group">
-          <label for="thought">感想</label>
-            <%= f.text_area :thought, placeholder: "感想や評価を入力して下さい", class: "form-control" %>
-        </div>
-
-         <div class="form-group">
-          <label for="thought">感想</label>
-            <%#= f.attachment_field :anime_image %>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit "登録", class: "btn btn-primary btn-sm" %>
-        </div>
-        <% end %>
+     <%= render "shared/anime_new", anime: @anime %>
     </div>
     <div class="col-md-8">
-      <h2 class="d-flex justify-content-center mb-3">アニメ評価一覧</h2>
+      <h2 class="d-flex justify-content-center mb-3">アニメ投稿一覧</h2>
         <table class="table table-hover table-inverse">
           <thead>
             <tr>
@@ -34,13 +15,17 @@
             </tr>
           </thead>
           <tbody>
-            <% @anime_index.each do |anime| %>
+            <% @animes_index.each do |anime| %>
             <tr>
               <td><%= attachment_image_tag anime, :anime_image,:fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%" %> </td>
+              <td><%= anime.title %></td>
+              <td></td>
+              <td></td>
             </tr>
             <% end %>
           </tbody>
         </table>
+        <div class="d-flex justify-content-center mb-3"><%= paginate @animes_index %></div>
     </div>
   </div>
 </div>

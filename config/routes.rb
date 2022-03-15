@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   #users/controller
   resources :users, only: [:index, :show, :edit, :create, :update] do
     collection do
-      get 'profile/:id', to: 'users#profile', as: "profile"
+      get '/profile/:id', to: 'users#profile', as: "profile"
     end
   end
 
   #animes/controller
-  resources :animes, only: [:index, :show, :edit, :create, :update]
+  resources :animes, only: [:index, :show, :edit, :create, :update, :destroy]
 
 end

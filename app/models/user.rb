@@ -11,5 +11,7 @@ class User < ApplicationRecord
   attachment :image
 
   validates :name, presence: true;
+  validates :name, length: { in: 1..8}
+
 
 end

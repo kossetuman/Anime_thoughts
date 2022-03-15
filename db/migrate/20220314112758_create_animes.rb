@@ -5,7 +5,7 @@ class CreateAnimes < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :thought
       t.string :anime_image_id
-
+      t.string :search
       t.timestamps
     end
   end

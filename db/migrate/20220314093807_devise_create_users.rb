@@ -37,6 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.text :introduction
       t.date :birth_date
       t.integer :sex
+      t.boolean :is_active, default: false, null: false
 
 
       t.timestamps null: false
