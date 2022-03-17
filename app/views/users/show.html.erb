@@ -1,17 +1,19 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col-md-3 mr-5">
+  <div class="row">
+    <div class="col-md-3 mr-5 mt-5">
       <%= render "shared/mypage" %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 mt-1">
       <h2 class="d-flex justify-content-center mt-5 mb-3">投稿アニメ</h2>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
             <th>anime_image</th>
             <th>title</th>
-            <th></th>
-            <th></th>
+              <th></th>
+              <% if @user == current_user %>
+                <th><%= render "shared/modal_anime_new" %></th>
+              <% end %>
           </tr>
         </thead>
         <tbody>
@@ -19,13 +21,14 @@
             <tr>
               <td><%= attachment_image_tag anime, :anime_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", style: "border-radius:50%" %></td>
               <td><%=link_to anime.title, anime_path(anime.id) %></td>
-              <td><%= link_to "編集", edit_anime_path(anime.id), class: "btn btn-sm btn-success" %></td>
-              <td><%= link_to "削除", anime_path(anime), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
+              <% if anime.user == current_user %>
+                <td><%= link_to "編集", edit_anime_path(anime.id), class: "btn btn-sm btn-success" %></td>
+                <td><%= link_to "削除", anime_path(anime), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
   </div>
-</div>
 </div>

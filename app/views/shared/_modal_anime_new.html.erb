@@ -1,0 +1,34 @@
+ <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modal_anime_new">
+   ＋
+ </button>
+ <div class="modal fade" id="modal_anime_new" tabindex="-1" role="dialog" aria-Labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h3 class="modal-title" id="modalLabelId">新規アニメ投稿</h3>
+       </div>
+       <div class="modal-body">
+         <%= form_with model: @anime, local: true do |f| %>
+           <h2>アニメ登録</h2>
+           <div class="form-group">
+             <label for="title">タイトル</label>
+               <%= f.text_field :title, autfoucus: true, placeholder: "アニメのタイトルを入力して下さい", class: "form-control" %>
+           </div>
+
+           <div class="form-group">
+             <label for="thought">感想</label>
+               <%= f.text_area :thought, placeholder: "感想や評価を入力して下さい", class: "form-control" %>
+           </div>
+
+           <div class="form-group">
+             <label for="thought">画像</label>
+               <%= f.attachment_field :anime_image %>
+           </div>
+       </div>
+       <div class="modal-footer">
+         <%= f.submit "登録", class: "btn btn-primary btn-sm" %>
+       </div>
+       <% end %>
+     </div>
+   </div>
+ </div>

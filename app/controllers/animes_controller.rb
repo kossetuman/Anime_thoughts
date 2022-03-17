@@ -16,10 +16,32 @@ class AnimesController < ApplicationController
     @anime = Anime.find(params[:id])
   end
 
+  def edit
+    @anime = Anime.find(params[:id])
+    if @anime.user == current_user
+      render :edit
+    else
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def update
+    @anime = Anime.find(params[:id])
+    if @anime.update(anime_params)
+      end  
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end  
+  end
+
   def destroy
     anime = Anime.find(params[:id])
-    anime.destroy
-    redirect_to root_path
+    if anime.destroy
+      redirect_to user_path(anime.user.id)
+    else
+      render :show
+    end
   end
 
    private

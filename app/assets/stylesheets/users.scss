@@ -8,3 +8,37 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+//_mypageのcss
+
+.profile {
+  margin: 0;
+  padding: 0;
+  width: 220px;
+  padding: 15px;
+  position: relative;
+}
+
+#name {
+  font-weight: bold;
+}
+
+.profile-item span {
+  width: 20px;
+}
+
+.profile-head {
+  margin: 0;
+  padding: 0;
+  width: 220px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.text-white {
+  line-height: 20px;
+  text-align: center;
+}
