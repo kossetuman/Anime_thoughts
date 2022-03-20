@@ -1,4 +1,5 @@
 class AnimesController < ApplicationController
+   before_action :authenticate_user!
   def index
     @anime = Anime.new
     @animes_index = Anime.page(params[:page]).per(10)
@@ -8,7 +9,7 @@ class AnimesController < ApplicationController
     @anime = Anime.new(anime_params)
     @anime.user_id = current_user.id
     if @anime.save
-      redirect_to user_path(@anime.user.id)
+      redirect_to user_path(@anime.user.id), notice: '投稿に成功しました。'
     end
   end
 
@@ -18,17 +19,15 @@ class AnimesController < ApplicationController
 
   def edit
     @anime = Anime.find(params[:id])
-    if @anime.user == current_user
-      render :edit
-    else
-      redirect_to user_path(current_user)
+    if @anime.user != current_user
+      redirect_to user_path(current_user), alear: '不正なアクセスです。'
     end
   end
 
   def update
     @anime = Anime.find(params[:id])
     if @anime.update(anime_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: '更新に成功しました。'
     else
       render :edit
     end

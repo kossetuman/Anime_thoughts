@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_19_192701) do
+ActiveRecord::Schema.define(version: 2022_03_20_205744) do
 
   create_table "animes", force: :cascade do |t|
     t.integer "user_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2022_03_19_192701) do
     t.text "thought"
     t.string "anime_image_id"
     t.string "search"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "anime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

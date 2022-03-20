@@ -1,8 +1,8 @@
 class Anime < ApplicationRecord
+  belongs_to :user
+  has_many :likes, dependent: :destroy
 
   attachment :anime_image
-
-  belongs_to :user
 
   validates :title, presence: true
 

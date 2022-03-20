@@ -34,4 +34,10 @@
        </ul>
      </div>
    </div>
+   <% if flash[:notice] %>
+     <div class="alert alert-primary"><strong><%= notice %></strong></div>
+   <% end %>
+   <% if flash[:alert] %>
+     <div class="alert alert-danger"><strong><%= alert %></strong></div>
+   <% end %>
  </div>
