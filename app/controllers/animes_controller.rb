@@ -28,11 +28,10 @@ class AnimesController < ApplicationController
   def update
     @anime = Anime.find(params[:id])
     if @anime.update(anime_params)
-      end  
       redirect_to user_path(current_user)
     else
       render :edit
-    end  
+    end
   end
 
   def destroy

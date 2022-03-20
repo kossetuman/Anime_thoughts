@@ -1,6 +1,10 @@
 <div class="container">
   <div class="col-md-12">
     <h2 class="d-flex justify-content-center mt-5 mb-3">ユーザー覧</h2>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit "検索" %>
+    <% end %>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
