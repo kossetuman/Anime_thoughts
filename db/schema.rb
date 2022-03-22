@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_205744) do
     t.string "title", null: false
     t.text "thought"
     t.string "anime_image_id"
+    t.float "rate", default: 0.0, null: false
     t.string "search"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
