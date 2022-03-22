@@ -1,31 +1,35 @@
 <div class="container">
-  <div class="col-md-12">
-    <h2 class="d-flex justify-content-center mt-5 mb-3">ユーザー覧</h2>
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :search %>
-    <%= f.submit "検索" %>
-    <% end %>
-      <table class="table table-hover table-inverse">
-        <thead class="thead-light">
-          <tr>
-            <th>ユーザー</th>
-            <th>ニックネーム</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-      <tbody>
-      <% @user_index.each do |user| %>
-        <tr>
-          <td><%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%" %></td>
-          <td><%= user.name %></td>
-          <td></td>
-          <td><%= link_to "見たアニメ", user_path(user.id), class: "btn btn-sm btn-primary" %></td>
-          <td><%= link_to "プロフィール", profile_users_path(user.id), class: "btn btn-sm btn-secondary" %></td>
-        </tr>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="page-title">
+        <h2>ユーザー一覧</h2>
+      </div>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit "検索" %>
       <% end %>
-      </tbody>
-    </table>
-  </div>
+        <table class="table table-hover table-inverse">
+          <thead class="thead-light">
+            <tr>
+              <th>ユーザー</th>
+              <th>ニックネーム</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+        <tbody>
+        <% @user_index.each do |user| %>
+          <tr>
+            <td><%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%" %></td>
+            <td><%= user.name %></td>
+            <td></td>
+            <td><%= link_to "見たアニメ", user_path(user.id), class: "btn btn-sm btn-primary" %></td>
+            <td><%= link_to "プロフィール", profile_users_path(user.id), class: "btn btn-sm btn-secondary" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
 </div>

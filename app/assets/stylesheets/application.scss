@@ -22,51 +22,21 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 99%;
-  background-color: #F2F2F2;
+//page-titleのcss
+
+.page-title {
+  background: linear-gradient(#f58220, #fbb161);
 }
 
-.header {
-  width: 100%;
-}
-// headerのcss
-.header-top-line {
-  width: 100%;
-  height: 30px;
-  background-color: #73cad0;
-}
-
-.header-middle {
-  width: 100;
-  padding-bottom: 5px;
-  background-color: white;
-}
-
-
-.header-bottom {
-  width: 100%;
-  height: 30px;
-  background-color: #1a1a1a;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: space-around;
-}
-
-.header-nav li  {
-  list-style: none;
-  line-height: 30px;
-}
-
-.header-nav li a {
-  text-decoration: none;
-}
-
-.nav-color {
+.page-title h2 {
+  font-size: 20px;
+  text-align: center;
   color: white;
 }
 
+//headerのcss
 
-
+.title-contents::before{
+  color: yellow;
+  margin-right: 5px;
+}

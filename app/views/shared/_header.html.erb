@@ -1,43 +1,48 @@
-<div class="header sticky-top">
-  <div class="row header-top">
-    <div class="header-top-line"></div>
-  </div>
-   <div class="header-middle">
-     <div class="header-middle-contents">
-       <h1 class="text-center">Anime_thoughts</h1>
-     </div>
-   </div>
-   <div class="header-bottom">
-     <div class="header-bottom-line">
-       <ul class="header-nav">
-         <% if user_signed_in? %>
-          <li>
-            <%= link_to "Home", user_path(current_user), class: "nav-color" %>
-          </li>
-          <li>
-            <%= link_to "Users", users_path, class: "nav-color" %>
-          </li>
-          <li>
-            <%= link_to "Animes", animes_path, class: "nav-color" %>
-          </li>
-          <li>
-            <%= link_to "Signout", destroy_user_session_path, method: :delete, data: { confirm: "サインアウトしますか？"}, class: "nav-color" %>
-          </li>
-         <% else %>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-color" %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: "nav-color" %>
-          </li>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand">
+    <%= link_to root_path do %>
+      <i class="fas fa-bolt text-white title-contents">MyAnime</i>
+    <% end %>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false" aria-labal="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="nav-items">
+    <ul class="navbar-nav nav-fill w-100 nav-justified">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to user_path(current_user), class: "nav-link" do %>
+          <i class="fas fa-home">Home</i>
         <% end %>
-       </ul>
-     </div>
-   </div>
-   <% if flash[:notice] %>
-     <div class="alert alert-primary"><strong><%= notice %></strong></div>
-   <% end %>
-   <% if flash[:alert] %>
-     <div class="alert alert-danger"><strong><%= alert %></strong></div>
-   <% end %>
- </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to users_path, class: "nav-link" do %>
+          <i class="fas fa-users">Users</i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to animes_path, class: "nav-link" do %>
+          <i class="fas fa-smile">Animes</i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "サインアウトしますか？"}, class: "nav-link" do %>
+          <i class="fas fa-sign-out-alt">SignOut</i>
+        <% end %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to new_user_registration_path, class: "nav-link" do %>
+          <i class="fas fa-user-plus">新規登録</i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to  new_user_session_path, class: "nav-link" do %>
+          <i class="fas fa-sign-in-alt">サインイン</i>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+

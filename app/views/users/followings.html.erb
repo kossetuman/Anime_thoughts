@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-12">
-      <h2 class="text-center">フォロー</h2>
+      <div class="page-title">
+        <h2>フォロー</h2>
+      </div>
       <table class="table text-center">
         <thead>
           <tr>
@@ -26,7 +28,7 @@
                     <button class="btn btn-sm btn-danger">フォロー解除</button>
                   <% end %>
               <% else %>
-                  <%= link_to user_relationships_path(user), method: :post do %>
+                  <%= link_to user_relationship_path(user), method: :post do %>
                     <button class="btn btn-sm btn-primary">フォロー</button>
                   <% end %>
                 <% end %>
