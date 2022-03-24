@@ -9,6 +9,9 @@
        </div>
        <div class="modal-body">
          <%= form_with model: @anime, local: true do |f| %>
+         <% if @anime.errors.any? %>
+           <div class="alert alert-danger" role="alert">タイトルは必須項目です。</div>
+         <% end %>
            <h2>アニメ登録</h2>
            <div class="form-group">
              <label for="title">タイトル</label>

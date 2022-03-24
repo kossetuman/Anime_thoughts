@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_20_205744) do
+ActiveRecord::Schema.define(version: 2022_03_24_180249) do
 
   create_table "animes", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
     t.text "thought"
     t.string "anime_image_id"
-    t.float "rate", default: 0.0, null: false
+    t.float "rate", default: 0.0
     t.string "search"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "anime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

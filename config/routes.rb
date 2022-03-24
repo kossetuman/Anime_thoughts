@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   #animes/controller
   resources :animes, only: [:index, :show, :edit, :create, :update, :destroy] do
     resource :like, only: [:create, :destroy]
-  end  
+    resources :comments, only: [:create, :destroy]
+  end
 
   #検索機能
   get "/search", to: "searches#search", as: "search"

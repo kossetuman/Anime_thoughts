@@ -5,7 +5,7 @@ class CreateAnimes < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.text :thought
       t.string :anime_image_id
-      t.float :rate, null: false, default: 0
+      t.float :rate, default: 0
       t.string :search
       t.timestamps
     end

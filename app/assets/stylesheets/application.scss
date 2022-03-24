@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+body {
+  
+}
+
 //page-titleのcss
 
 .page-title {
@@ -39,4 +43,8 @@
 .title-contents::before{
   color: yellow;
   margin-right: 5px;
+}
+
+.active {
+  color: white;
 }

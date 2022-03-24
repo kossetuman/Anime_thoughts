@@ -15,6 +15,9 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
+    @comment = Comment.new
+    @user = User.find_by(id: @comment.user_id)
+    @comments = @anime.comments.page(params[:page]).per(5)
   end
 
   def edit

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
   <a class="navbar-brand">
     <%= link_to root_path do %>
       <i class="fas fa-bolt text-white title-contents">MyAnime</i>
@@ -11,14 +11,18 @@
     <ul class="navbar-nav nav-fill w-100 nav-justified">
       <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to user_path(current_user), class: "nav-link" do %>
-          <i class="fas fa-home">Home</i>
-        <% end %>
+        <div class="nav-item-content active">
+          <%= link_to user_path(current_user), class: "nav-link" do %>
+            <i class="fas fa-home">Home</i>
+          <% end %>
+        </div>
       </li>
       <li class="nav-item">
-        <%= link_to users_path, class: "nav-link" do %>
-          <i class="fas fa-users">Users</i>
-        <% end %>
+        <div class="nav-item-content">
+          <%= link_to users_path, class: "nav-link" do %>
+            <i class="fas fa-users">Users</i>
+          <% end %>
+        </div>
       </li>
       <li class="nav-item">
         <%= link_to animes_path, class: "nav-link" do %>
@@ -45,4 +49,11 @@
     </ul>
   </div>
 </nav>
+<% if flash[:notice] %>
+  <div class="alert alert-primary" roll="alert"><%= notice %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger" roll="alert"><%= alert %></div>
+<% end %>
+
 

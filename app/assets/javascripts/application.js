@@ -20,6 +20,14 @@
 //= require_tree .
 
  /* global $*/
+
+$(function(){
+    $('#comment-new').on('click', function(){
+      $('#comment-form').slideToggle(400);
+    });
+});
+
+
 window.jQuery = window.$ = require('jquery')
 
 require("app/javascripts/jquery_raty")

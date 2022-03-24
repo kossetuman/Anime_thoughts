@@ -12,6 +12,15 @@
   }
 }
 
+.user-picture {
+  .image {
+    width: 50px;
+    height: 50px;
+    border-radius: 2px;
+    object-fit: cover;
+  }
+}
+
 .anime-title h2 {
   font-weight: bold;
 }
@@ -22,6 +31,9 @@
 
 
 .thought-text {
-  text-overflow: ellipsis;
   letter-spacing: 0.1em;
+}
+
+#comment-form {
+  display: none;
 }

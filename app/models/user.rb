@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   has_many :animes, dependent: :destroy
   
+  #コメント機能のアソシエーション
+  has_many :comments, dependent: :destroy
+  
+  #いいね機能のアソシエーション
   has_many :likes, dependent: :destroy
 
   #フォロー機能のアソシエーション

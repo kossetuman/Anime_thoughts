@@ -2,7 +2,7 @@
   <div class="profile-head bg-info">
     <div class="text-profile text-white"><i class="fas fa-user mr-2"></i>profile</div>
   </div>
-<div class="text-center mt-3 mb-3"><%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:10%" %></div>
+<div class="text-center mt-3 mb-3 myprofile-user-image"><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image_user.jpg" %></div>
 <div class="profile-item text-center">
   <div id="name"><%= @user.name %></div>
   <div class="mt-1 mb-1">生年月日:<span>&nbsp;<%= @user.birth_date %></span></div>
