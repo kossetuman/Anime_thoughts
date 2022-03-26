@@ -21,7 +21,12 @@
 他者の評価・及び感想を見る時
 
 ## 設計書
-<...>
+<!--WBS-->
+https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
+<!--テーブル定義書-->
+https://docs.google.com/spreadsheets/d/1-PledjNPwuYBRTbIUydu2CR83Z_kzWpcB98KKnFqVmo/edit#gid=2034983829
+<!--アプリケーション詳細設計書-->
+https://docs.google.com/spreadsheets/d/1UnaN6j4gObjNWXNGKGX_rahFJEmlOgUe8Msux1_uKKo/edit#gid=549108681
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8mlTg/edit#gid=0
@@ -34,5 +39,4 @@ https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8m
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- 

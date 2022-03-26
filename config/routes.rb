@@ -20,7 +20,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  #検索機能
-  get "/search", to: "searches#search", as: "search"
 
 end

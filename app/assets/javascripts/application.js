@@ -21,7 +21,9 @@
 
  /* global $*/
 
-$(function(){
+document.addEventListener("turbolinks:load"
+
+, function(){
     $('#comment-new').on('click', function(){
       $('#comment-form').slideToggle(400);
     });

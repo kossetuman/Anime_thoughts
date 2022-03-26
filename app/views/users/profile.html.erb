@@ -19,17 +19,19 @@
       </div>
       <% end %>
     </div>
-  </div>  
-  <div class="row">
-    <div class="col-md-6 offset-3">
-      <p class="text-left d-inline-block mt-3"><%= @user.introduction %></p>
-    </div>
   </div>
   <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 mx-auto">
+      <div class="text-cente mt-3">
+        <%= @user.introduction %>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-6 mx-auto">
       <% if @user == current_user %>
         <div class="text-center"><%= link_to "マイアニメ", user_path(@user.id), class: "btn btn-sm btn-secondary" %></div>
-      <% else %>  
+      <% else %>
       <div class="text-center"><%= link_to "#{@user.name}さんが視聴したアニメ", user_path(@user.id), class: "btn btn-sm btn-secondary" %></div>
       <% end %>
     </div>

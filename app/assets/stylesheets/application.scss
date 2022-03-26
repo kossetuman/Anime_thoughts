@@ -23,7 +23,15 @@
 }
 
 body {
-  
+ background-color: #f8f9fa;
+}
+
+.container {
+  background-color: white;
+  padding: 1px;
+}
+main {
+  padding-bottom: 60px;
 }
 
 //page-titleのcss
@@ -45,6 +53,4 @@ body {
   margin-right: 5px;
 }
 
-.active {
-  color: white;
-}
+

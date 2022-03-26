@@ -35,11 +35,4 @@ class User < ApplicationRecord
     self.likes.exists?(anime_id: anime.id)
   end  
 
-  def self.search(search)
-    if search
-      User.where(['name LIKE ?'], "%#{search}%")
-    else
-      User.all
-    end
-  end
 end

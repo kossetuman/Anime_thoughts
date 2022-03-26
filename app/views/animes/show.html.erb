@@ -62,7 +62,7 @@
       </div>
       <p>コメント件数: <%= @comments.count %></p>
       <% @comments.each do |comment| %>
-      <div class="comment-index mb-2 border rounded bg-white py-1">
+      <div class="comment-index mb-2 border rounded bg-light py-2">
         <%= attachment_image_tag comment.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", style: "border-radius:50%" %>
         <%= comment.user.name %>
         <%= comment.created_at.strftime('%Y/%m/%d') %></br>

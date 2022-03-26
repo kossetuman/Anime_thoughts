@@ -1,8 +1,8 @@
 class AnimesController < ApplicationController
    before_action :authenticate_user!
   def index
-    @anime = Anime.new
-    @animes_index = Anime.page(params[:page]).per(10)
+    @search = Anime.search(params[:q])
+    @animes = @search.result(distinct: true).page(params[:page])
   end
 
   def create
@@ -30,7 +30,7 @@ class AnimesController < ApplicationController
   def update
     @anime = Anime.find(params[:id])
     if @anime.update(anime_params)
-      redirect_to user_path(current_user), notice: '更新に成功しました。'
+      redirect_to anime_path(@anime.id), notice: '更新に成功しました。'
     else
       render :edit
     end

@@ -1,20 +1,20 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @user = current_user
-    @user_index = User.where.not(id: current_user.id)
+    @search = User.search(params[:q])
+    @users = @search.result(distinct: true).page(params[:page])
   end
-  
+
   def followings
     user = User.find(params[:id])
     @user = user.followings
-  end 
-  
+  end
+
   def followers
     user = User.find(params[:id])
     @user = user.followers
-  end  
+  end
 
   def profile
     @user = User.find(params[:id])
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @anime = Anime.new
     @anime_show = Anime.where(user_id: @user)
+    @anime_show = Anime.page(params[:page]).per(10)
   end
 
   def edit
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id), notice: "ユーザー情報を更新しました。"
+      redirect_to  profile_users_path(@user.id), notice: "ユーザー情報を更新しました。"
     else
       render :edit
     end
