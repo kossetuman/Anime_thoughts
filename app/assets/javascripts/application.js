@@ -24,8 +24,9 @@
 document.addEventListener("turbolinks:load"
 
 , function(){
+  $('#comment-contents').hide();
     $('#comment-new').on('click', function(){
-      $('#comment-form').slideToggle(400);
+      $('#comment-contents').slideToggle(400);
     });
 });
 
