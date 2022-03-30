@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @anime = Anime.new
     @anime_show = Anime.where(user_id: @user)
-    @anime_show = Anime.page(params[:page]).per(10)
+    @anime_show = @anime_show.page(params[:page]).per(10)
   end
 
   def edit

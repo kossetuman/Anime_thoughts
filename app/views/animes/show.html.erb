@@ -17,7 +17,7 @@
         <%= @anime.likes.count %>
       </div>
     </div>
-      <div class="col-md-6 ml-3">
+      <div class="col-md-6 col-sm-6 col-6 mx-auto ml-3 ">
         <div class="d-flex anime-title">
           <h2><%= @anime.title %></h2>
           <div class="user-picture">
@@ -49,8 +49,8 @@
          </p>
        </div>
   </div>
-  <div class="row mt-3 ml-5">
-    <div class="col-md-10">
+  <div class="row mt-3 mx-auto">
+    <div class="col-md-10 ml-5">
       <div id="comment-new">
         <button class="btn btn-secondary">コメント入力</button>
       </div>
@@ -62,13 +62,14 @@
       </div>
       <p>コメント件数: <%= @comments.count %></p>
       <% @comments.each do |comment| %>
-      <div class="comment-index mb-2 border rounded bg-light py-2">
+      <div class="comment-index mb-4 border rounded bg-light py-2">
         <%= attachment_image_tag comment.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", style: "border-radius:50%" %>
         <%= comment.user.name %>
         <%= comment.created_at.strftime('%Y/%m/%d') %></br>
         <div class="comment-delete">
           <%= comment.comment %>
           <% if comment.user == current_user %>
+          <%= link_to "編集", edit_anime_comment_path(comment.anime, comment), class: "btn btn-success btn-sm" %>
           <%= link_to "削除", anime_comment_path(comment.anime, comment), method: :delete, data: { confirm: "削除しますか？"}, class: "btn btn-danger btn-sm" %>
         </div>
       </div>

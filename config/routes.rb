@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #animes/controller
   resources :animes, only: [:index, :show, :edit, :create, :update, :destroy] do
     resource :like, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
 
