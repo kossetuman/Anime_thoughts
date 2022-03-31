@@ -1,0 +1,26 @@
+<% comments.each do |comment| %>
+  <div class="comment-index mb-4 border rounded bg-light mt-4 py-2">
+    <div class="user-picture-comment d-flex">
+      <%= attachment_image_tag comment.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
+      <div class="user-comment-name-create text-secondary">
+        <%= link_to user_path(comment.user.id) do %>
+          <%= comment.user.name %>
+        <% end %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+      </div>
+    </div>
+    <div class="comment mt-1">
+      <div class="comment-text">
+        <%= simple_format(comment.comment) %>
+      </div>
+      <% if comment.user == current_user %>
+        <%= link_to edit_anime_comment_path(comment.anime, comment), remote: true do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to anime_comment_path(comment.anime, comment), method: :delete, remote: true, data: { confirm: "削除しますか？"} do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -17,78 +17,77 @@
         <%= @anime.likes.count %>
       </div>
     </div>
-      <div class="col-md-6 col-sm-6 col-6 mx-auto ml-3 ">
-        <div class="d-flex anime-title">
-          <h2><%= @anime.title %></h2>
-          <div class="user-picture">
-            <%= link_to user_path(@anime.user.id) do %>
-            <%= attachment_image_tag @anime.user, :image, format: 'jpeg', fallback: "no_image_user.png", class: "ml-2" %>
-            <% end %>
-          </div>
-        </div>
-        <div class="star-raty">
-          <div id="star-rate-<%= @anime.id %>"></div>
-          <script>
-           $('#star-rate-<%= @anime.id %>').raty({
-             size: 36,
-             starOff:  '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             half: true,
-             readOnly: true,
-             score: <%= @anime.rate %>,
-           });
-           </script>
-         </div>
-         <div class="star-view">
-           <%= @anime.rate %>
-         </div>
-         <div class="mt-3 border-bottom thought-head">感想</div>
-         <p class="thought-text mt-1">
-           <%= @anime.thought %>
-         </p>
+    <div class="col-md-8 col-sm-10 col-10 mx-auto ml-3 mt-3">
+      <div class="anime-title user-picture d-flex">
+        <%= link_to user_path(@anime.user.id) do %>
+          <%= attachment_image_tag @anime.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
+        <% end %>  
+        <h2 class="ml-2"><%= @anime.title %></h2>
+        
+      </div>
+      <div class="star-raty mt-2">
+        <div id="star-rate-<%= @anime.id %>"></div>
+        <script>
+         $('#star-rate-<%= @anime.id %>').raty({
+           size: 36,
+           starOff:  '<%= asset_path('star-off.png') %>',
+           starOn : '<%= asset_path('star-on.png') %>',
+           starHalf: '<%= asset_path('star-half.png') %>',
+           half: true,
+           readOnly: true,
+           score: <%= @anime.rate %>,
+         });
+         </script>
        </div>
+       <div class="star-view">
+         <%= @anime.rate %>
+       </div>
+       <div class="mt-3 border-bottom thought-head">感想</div>
+       <p class="thought-text mt-1">
+         <%= @anime.thought %>
+       </p>
+    </div>
   </div>
   <div class="row mt-3 mx-auto">
-    <div class="col-md-10 ml-5">
+    <div class="col-md-11 col-sm-11 col-12 mx-auto">
       <div id="comment-new">
         <button class="btn btn-secondary">コメント</button><span class="ml-2">コメント件数: <%= @comments.count %></span>
       </div>
       <div class="mt-2" id="comment-contents">
-        <div class="comment-form border-bottom">
+        <div class="new-comment border-bottom">
           <%= form_with(model: [@anime, @comment], local: true) do |f| %>
-          <%= f.text_area :comment, :size=>"60x3", placeholder: "コメントする", class: "form-control" %>
-          <%= f.submit "送信する", class: "btn btn-success btn-sm mt-2 mb-2" %>
+            <%= f.text_area :comment, :size=>"60x3", placeholder: "コメントする", class: "form-control" %>
+            <%= f.submit "送信する", class: "btn btn-success btn-sm mt-2 mb-2" %>
           <% end %>
         </div>
-      <% @comments.each do |comment| %>
-        <div class="comment-index mb-4 border rounded bg-light mt-4 py-2">
-          <div class="user-picture-comment d-flex">
-            <%= attachment_image_tag comment.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
-            <div class="user-comment-name-create text-secondary">
-              <%= link_to user_path(comment.user.id) do %>
-                <%= comment.user.name %>
-              <% end %>
-              <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+          <% @comments.each do |comment| %>
+            <div class="comment-index mb-4 border rounded bg-light mt-4 py-2">
+              <div class="user-picture-comment d-flex">
+                <%= attachment_image_tag comment.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
+                <div class="user-comment-name-create text-secondary">
+                  <%= link_to user_path(comment.user.id) do %>
+                    <%= comment.user.name %>
+                  <% end %>
+                  <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+                </div>
+              </div>
+              <div class="comment mt-1">
+                <div class="comment-text">
+                  <%= simple_format(comment.comment) %>
+                </div>
+                <% if comment.user == current_user %>
+                  <%= link_to edit_anime_comment_path(comment.anime, comment) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                  <%= link_to anime_comment_path(comment.anime, comment), method: :delete, data: { confirm: "削除しますか？"} do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div class="comment mt-1">
-            <div class="comment-text">
-              <%= simple_format(comment.comment) %>
-            </div>
-            <% if comment.user == current_user %>
-              <%= link_to edit_anime_comment_path(comment.anime, comment) do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-              <%= link_to anime_comment_path(comment.anime, comment), method: :delete, data: { confirm: "削除しますか？"} do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
       </div>
-      <%= paginate @comments %>
+      <%#= paginate @comments %>
     </div>
   </div>
 </div>

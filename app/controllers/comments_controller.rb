@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.anime_id = anime.id
     comment.save
-    redirect_to anime_path(anime.id)
+    redirect_to anime_path(anime.id)  
   end
 
   def edit

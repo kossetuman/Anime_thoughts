@@ -1,0 +1,4 @@
+<%= form_with(model: [anime, comment]) do |f| %>
+  <%= f.text_area :comment, :size=>"60x3", placeholder: "コメントする", class: "form-control" %>
+  <%= f.submit "送信する", class: "btn btn-success btn-sm mt-2 mb-2" %>
+<% end %>
