@@ -11,6 +11,7 @@ class User < ApplicationRecord
   #コメント機能のアソシエーション
   has_many :comments, dependent: :destroy
   
+  
   #いいね機能のアソシエーション
   has_many :likes, dependent: :destroy
 
@@ -20,6 +21,10 @@ class User < ApplicationRecord
 
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :followers, through: :reverse_of_relationships, source: :following
+  
+  #通知機能のアソシエーション
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   attachment :image
 

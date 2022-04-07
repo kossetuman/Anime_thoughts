@@ -4,14 +4,6 @@
 
 //showページのcss
 
-.anime-picture {
-  .anime_image {
-    width: 240px;
-    height: 362px;
-    object-fit: cover;
-  }
-}
-
 .user-picture {
   .image {
     width: 50px;
@@ -22,25 +14,10 @@
 }
 
 .user-picture-comment {
+  width: 50px;
   height: 50px;
-  margin-bottom: 10px;
-  .image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 10px;
-  }
-}
-
-.user-comment-name-create {
-  line-height: 50px;
-  margin-left: 10px;
-}
-
-.comment {
-  margin-left: 10px;
-  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .anime-title h2 {
@@ -55,8 +32,3 @@
 .thought-text {
   letter-spacing: 0.1em;
 }
-
-.comment-text {
-  letter-spacing: 0.05em;
-}
-

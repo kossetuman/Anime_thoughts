@@ -11,12 +11,10 @@
         <thead class="thead-light">
           <tr>
             <% if @user == current_user %>
-              <th>anime_image</th>
               <th>title</th>
               <th></th>
-              <th><%= render "shared/modal_anime_new" %></th>
+              <th id="anime-modal"><%= render "shared/modal_anime_new" %></th>
             <% else %>
-              <th>anime_image</th>
               <th>title</th>
               <th></th>
               <th></th>
@@ -27,13 +25,11 @@
           <% @anime_show.each do |anime| %>
             <tr>
               <% if anime.user == current_user %>
-              　<td><%= attachment_image_tag anime, :anime_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", style: "border-radius:50%" %></td>
-             　  <td><%=link_to anime.title, anime_path(anime.id) %></td>
+                <td><%=link_to anime.title, anime_path(anime.id) %></td>
                 <td><%= link_to "編集", edit_anime_path(anime.id), class: "btn btn-sm btn-success" %></td>
                 <td><%= link_to "削除", anime_path(anime), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
               <% else %>
-                <td><%= attachment_image_tag anime, :anime_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", style: "border-radius:50%" %></td>
-             　  <td><%=link_to anime.title, anime_path(anime.id) %></td>
+                <td><%=link_to anime.title, anime_path(anime.id) %></td>
                 <td></td>
                 <td></td>
               <% end %>

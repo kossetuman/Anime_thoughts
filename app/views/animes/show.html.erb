@@ -1,29 +1,11 @@
 <div class="container pt-1">
   <div class="row mt-5">
-    <div class="col-md-4">
-      <div class="anime-picture text-center">
-        <%= attachment_image_tag @anime, :anime_image, format: 'jpeg', fallback: "no_image.jpg", class: "mt-3" %>
-      </div>
-      <div class="like-contents text-center mt-1">
-        <% if current_user.already_liked?(@anime) %>
-          <%= link_to anime_like_path(@anime.id), method: :delete do %>
-            <i class="fas fa-heart">いいね</i>
-          <% end %>
-        <% else %>
-          <%= link_to anime_like_path(@anime.id), method: :create do %>
-            <i class="far fa-heart">いいね</i>
-          <% end %>
-        <% end %>
-        <%= @anime.likes.count %>
-      </div>
-    </div>
-    <div class="col-md-8 col-sm-10 col-10 mx-auto ml-3 mt-3">
+    <div class="col-md-12 mt-3">
       <div class="anime-title user-picture d-flex">
         <%= link_to user_path(@anime.user.id) do %>
           <%= attachment_image_tag @anime.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
-        <% end %>  
+        <% end %>
         <h2 class="ml-2"><%= @anime.title %></h2>
-        
       </div>
       <div class="star-raty mt-2">
         <div id="star-rate-<%= @anime.id %>"></div>
@@ -42,52 +24,112 @@
        <div class="star-view">
          <%= @anime.rate %>
        </div>
+       <div class="like-contents mt-1 d-flex">
+        <% if current_user.already_liked?(@anime) %>
+          <%= link_to anime_like_path(@anime.id), method: :delete do %>
+            <i class="fas fa-heart">いいね</i>
+          <% end %>
+        <% else %>
+          <%= link_to anime_like_path(@anime.id), method: :create do %>
+            <i class="far fa-heart">いいね</i>
+          <% end %>
+        <% end %>
+        <%= @anime.likes.count %>
+        <div class="site_url">
+          <%= link_to @anime.site_url do %>
+            <div>アニメ概要</div>
+          <% end %>
+        </div>
+      </div>
        <div class="mt-3 border-bottom thought-head">感想</div>
        <p class="thought-text mt-1">
          <%= @anime.thought %>
        </p>
     </div>
   </div>
-  <div class="row mt-3 mx-auto">
-    <div class="col-md-11 col-sm-11 col-12 mx-auto">
+  <div class="row mt-3">
+    <div class="col-md-12">
       <div id="comment-new">
         <button class="btn btn-secondary">コメント</button><span class="ml-2">コメント件数: <%= @comments.count %></span>
       </div>
       <div class="mt-2" id="comment-contents">
-        <div class="new-comment border-bottom">
+        <div class="new-comment">
           <%= form_with(model: [@anime, @comment], local: true) do |f| %>
+            <%= f.hidden_field :anime_id, value: @anime.id %>
             <%= f.text_area :comment, :size=>"60x3", placeholder: "コメントする", class: "form-control" %>
             <%= f.submit "送信する", class: "btn btn-success btn-sm mt-2 mb-2" %>
           <% end %>
         </div>
+      </div>  
+      <hr/>
           <% @comments.each do |comment| %>
-            <div class="comment-index mb-4 border rounded bg-light mt-4 py-2">
-              <div class="user-picture-comment d-flex">
-                <%= attachment_image_tag comment.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
-                <div class="user-comment-name-create text-secondary">
-                  <%= link_to user_path(comment.user.id) do %>
-                    <%= comment.user.name %>
+            <% unless comment.id.nil? || !comment.parent_id.nil? %>
+              <div class="card bg-light mb-2">
+                <div class="card-body p-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <%= attachment_image_tag comment.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.png" %>
+                    </div>
+                    <div class="mr-2 ml-1">
+                      <%= comment.user.name %>
+                    </div>
+                    <div>
+                      <small class="mr-2"><%= comment.created_at.strftime('%Y/%m/%d/ %H:%M') %></small>
+                    </div>
+                    <% if comment.user == current_user %>
+                      <%= link_to edit_anime_comment_path(comment.anime, comment) do %>
+                        <i class="far fa-edit mr-1"></i>
+                      <% end %>
+                      <%= link_to anime_comment_path(comment.anime, comment), method: :delete, data: { confirm: "削除しますか？"} do %>
+                        <i class="far fa-trash-alt"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="mt-3">
+                    <%= simple_format(comment.comment) %>
+                  </div>
+
+                  <div id="reply-form">
+                    <%= form_with(model: [@anime, @comment_reply], local: true) do |f| %>
+                      <%= f.text_area :comment, :size=>"60x3", placeholder: "返信する", class: "form-control" %>
+                      <%= f.hidden_field :parent_id, value: comment.id%>
+                      <%= f.submit "返信", class: "btn btn-success btn-sm mt-2 mb-2" %>
+                    <% end %>
+                  </div>
+
+                  <% unless comment.replies.blank? %>
+                    <div class="card">
+                      <div class="card-body p-2">
+                        <% comment.replies.each do |replie| %>
+                          <div class="d-flex align-items-center">
+                            <div>
+                              <%= attachment_image_tag replie.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.png" %>
+                            </div>
+                            <div class="mr-2 ml-1">
+                              <%= replie.user.name %>
+                            </div>
+                            <div>
+                              <small class="mr-2"><%= replie.created_at.strftime('%Y/%m/%d') %></small>
+                            </div>
+                          </div>
+                          <div class="mt-3">
+                            <%= simple_format(replie.comment) %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
                   <% end %>
-                  <%= comment.created_at.strftime('%Y/%m/%d') %></br>
                 </div>
               </div>
-              <div class="comment mt-1">
-                <div class="comment-text">
-                  <%= simple_format(comment.comment) %>
-                </div>
-                <% if comment.user == current_user %>
-                  <%= link_to edit_anime_comment_path(comment.anime, comment) do %>
-                    <i class="far fa-edit"></i>
-                  <% end %>
-                  <%= link_to anime_comment_path(comment.anime, comment), method: :delete, data: { confirm: "削除しますか？"} do %>
-                    <i class="far fa-trash-alt"></i>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
+
+
+              <!--Oya : <%= "ID : #{comment.id} / UN : #{comment.user.name} / #{comment.comment}" %> |-->
+              <!--<% comment.replies.each do |replie| %>-->
+              <!--  Ko : <%= "UN : #{replie.user.name} / #{replie.comment}" %> |-->
+              <!--<% end %>-->
+
+            <% end %>
           <% end %>
-      </div>
-      <%#= paginate @comments %>
     </div>
   </div>
 </div>

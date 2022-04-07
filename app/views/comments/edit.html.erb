@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row mt-5 p-2">
+    <div class="col-md-6 mx-auto border border-secondary rounded p-4">
+      <h2 class="text-center border-bottom">コメント編集</h2>
+      <%= form_with model: @comment, url: anime_comment_path, local: true do |f| %>
+
+      <div class="form-group">
+        <label for="name">コメント</label>
+          <%= f.text_area :comment, autfocus: true, :size=>"60x10", placeholder: "コメント編集", class: "form-control" %>
+          <% if @comment.errors.include?(:comment) %>
+            <div class="text-danger"><%= @comment.errors.full_messages_for(:comment).first %></div>
+          <% end %>
+
+      </div>
+
+      <%= f.submit "更新", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

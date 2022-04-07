@@ -1,54 +1,62 @@
- <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modal_anime_new">
-   ＋
- </button>
- <div class="modal fade" id="modal_anime_new" tabindex="-1" role="dialog" aria-Labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h3 class="modal-title" id="modalLabelId">新規アニメ投稿</h3>
-       </div>
-       <div class="modal-body">
-         <%= form_with model: @anime, local: true do |f| %>
-         <% if @anime.errors.any? %>
-           <div class="alert alert-danger" role="alert">タイトルは必須項目です。</div>
-         <% end %>
-           <h2>アニメ登録</h2>
-           <div class="form-group">
-             <label for="title">タイトル</label>
-               <%= f.text_field :title, autfoucus: true, autocomplete: 'title', placeholder: "アニメのタイトルを入力して下さい", class: "form-control" %>
-               <div class="invalid-feedback">タイトルは必須項目です。</div>
-           </div>
+<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modal_anime_new">
+  ＋
+</button>
+<div class="modal fade" id="modal_anime_new" tabindex="-1" role="dialog" aria-Labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalLabelId">新規アニメ投稿</h3>
+      </div>
+      <%= form_with model: @anime do |f| %>
+      <div class="modal-body">
+          <h2>アニメ登録</h2>
+          <div class="form-group">
+            <label for="title">タイトル</label>
+              <%= f.text_field :title, autfoucus: true, autocomplete: 'title', placeholder: "アニメのタイトルを入力して下さい", class: "form-control" %>
+              <% if @anime.errors.include?(:title) %>
+                <div class="text-danger"><%= @anime.errors.full_messages_for(:title).first %></div>
+              <% end %>
+          </div>
 
-           <div class="form-group">
-             <label for="thought">感想</label>
-               <%= f.text_area :thought, placeholder: "感想や評価を入力して下さい", class: "form-control" %>
-           </div>
+          <div class="form-group">
+            <label for="thought">感想</label>
+              <%= f.text_area :thought, placeholder: "感想や評価を入力して下さい", class: "form-control" %>
+               <% if @anime.errors.include?(:thought) %>
+                <div class="text-danger"><%= @anime.errors.full_messages_for(:thought).first %></div>
+              <% end %>
+          </div>
 
-           <div class="form-group" id="star">
-             <%= f.label :rate, "評価 :" %>
-             <%= f.hidden_field :rate, id: :review_star %>
-           </div>
+          <div class="form-group" id="star">
+            <%= f.label :rate, "評価 :" %>
+            <%= f.hidden_field :rate, id: :review_star %>
+          </div>
 
-           <script>
-            $('#star').raty({
-             size : 36,
-             starOff: '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'anime[rate]',
-             half: true,
-           });
-           </script>
+          <%= f.hidden_field :user_id, value: @user.id %>
 
-           <div class="form-group">
-             <label for="thought">画像</label>
-               <%= f.attachment_field :anime_image %>
-           </div>
-       </div>
-       <div class="modal-footer">
-         <%= f.submit "登録", class: "btn btn-primary btn-sm" %>
-       </div>
-       <% end %>
-     </div>
-   </div>
- </div>
+          <script>
+           $('#star').raty({
+            size : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'anime[rate]',
+            half: true,
+          });
+          </script>
+          
+          <% if @anime.errors.include?(:rate) %>
+            <div class="text-danger"><%= @anime.errors.full_messages_for(:rate).first %></div>
+          <% end %>
+
+          <div class="form-group">
+            <label for="thought">url</label>
+              <%= f.text_field :site_url, class: "form-control" %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "登録", class: "btn btn-primary btn-sm" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

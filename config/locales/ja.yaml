@@ -1,0 +1,7 @@
+a:
+  activerecord:
+    attributes:
+      anime:
+        title: タイトル
+        thought: 感想
+        

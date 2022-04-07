@@ -24,13 +24,20 @@
 document.addEventListener("turbolinks:load"
 
 , function(){
-  $('#comment-contents').hide();
     $('#comment-new').on('click', function(){
       $('#comment-contents').slideToggle(400);
     });
+// $(function(){
+//   $('#reply-form').hide();
+//   $('#reply').on('click', function(){
+//     $('#reply-form').slideToggle(400);
+//     });
+//   });
 });
 
 
-window.jQuery = window.$ = require('jquery')
 
-require("app/javascripts/jquery_raty")
+
+// window.jQuery = window.$ = require('jquery')
+
+//require("app/javascripts/jquery_raty")

@@ -8,16 +8,23 @@ class AnimesController < ApplicationController
   def create
     @anime = Anime.new(anime_params)
     @anime.user_id = current_user.id
+    #byebug
     if @anime.save
-      redirect_to user_path(@anime.user.id), notice: '投稿に成功しました。'
+      redirect_to anime_path(@anime.id), notice: '投稿に成功しました'
+    else
+      @user = User.find(params[:anime][:user_id])
+      @anime_show = Anime.where(user_id: @user)
+      @anime_show = @anime_show.page(params[:page]).per(10)
     end
   end
 
   def show
-    @anime = Anime.find(params[:id])
-    @comment = Comment.new
-    @user = User.find_by(id: @comment.user_id)
-    @comments = @anime.comments.page(params[:page]).per(5)
+    @anime = Anime.find(params[:id]) #animeのid取得
+    @comment = @anime.comments.build
+    @user = User.find_by(id: @comment.user_id) #@comment(投稿コメント)に紐づいたuserのidを取得
+    @comments = @anime.comments #@animeに紐づいたコメント全件取得
+    @comment_reply = @anime.comments.build
+    # binding.irb
   end
 
   def edit
@@ -48,6 +55,6 @@ class AnimesController < ApplicationController
    private
 
     def anime_params
-      params.require(:anime).permit(:title, :thought, :anime_image, :rate)
+      params.require(:anime).permit(:title, :thought, :anime_image, :rate, :site_url)
     end
 end

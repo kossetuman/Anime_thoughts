@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_24_180249) do
+ActiveRecord::Schema.define(version: 2022_04_07_103434) do
 
   create_table "animes", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
-    t.text "thought"
-    t.string "anime_image_id"
-    t.float "rate", default: 1.0
-    t.string "search"
+    t.text "thought", null: false
+    t.text "site_url"
+    t.float "rate", default: 1.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,11 +28,25 @@ ActiveRecord::Schema.define(version: 2022_03_24_180249) do
     t.integer "anime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "anime_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id"
+    t.integer "visited_id"
+    t.integer "like_id"
+    t.integer "comment_id"
+    t.integer "anime_id"
+    t.string "action"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
