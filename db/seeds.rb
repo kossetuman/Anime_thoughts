@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user1 = User.find_by(email: "test1@gmail.com") == nil ? User.create!(name: "hoge1", email: "test1@gmail.com", password: "111111") : User.find_by(email: "test1@gmail.com")
-user2 = User.find_by(email: "test2@gmail.com") == nil ? User.create!(name: "hoge2", email: "test2@gmail.com", password: "222222") : User.find_by(email: "test2@gmail.com")
+user2 = User.find_by(email: "test2@gmail.com") == nil ? User.create!(name: "hoge2", email: "test2@gmail.com", password: "222222", image: File.open("./app/assets/images/man.png")) : User.find_by(email: "test2@gmail.com")
 user3 = User.find_by(email: "test3@gmail.com") == nil ? User.create!(name: "hoge3", email: "test3@gmail.com", password: "333333", image: File.open("./app/assets/images/chara.jpg")) : User.find_by(email: "test3@gmail.com")
 
 

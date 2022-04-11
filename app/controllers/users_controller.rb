@@ -52,6 +52,18 @@ class UsersController < ApplicationController
   def create
   end
 
+  def withdrawal
+    @user = User.find(params[:id])
+    @user.update(is_active: true)
+    reset_session
+    redirect_to root_path, notice: "退会処理を実行致しました。再度登録して下さい"
+  end
+
+  def unsubscribe_confirmation
+ 
+  end
+
+
   private
 
     def user_params
