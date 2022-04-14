@@ -4,11 +4,13 @@
   </div>
 <div class="text-center mt-3 mb-3 myprofile-user-image"><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image_user.jpg" %></div>
 <div class="profile-item text-center">
-  <%= link_to '通知', user_notifications_path(current_user) %>
-  <% if unchecked_notifications.any? %>
-    <i class="fa fa-circle notification-circle"></i>
-  <% end %>
   <div id="name"><%= @user.name %></div>
+  <%= link_to user_notifications_path(current_user) do %>
+    <i class="far fa-bell">通知</i>
+  <% end %>
+  <% if unchecked_notifications.any? %>
+    <i class="fa fa-circle notification-circle" style="color: gold;"></i>
+  <% end %>
   <div class="mt-1 mb-1">生年月日:<span>&nbsp;<%= @user.birth_date %></span></div>
   <div class="mb-1">性別:<span>&nbsp;<%= @user.sex %></span></div>
 </div>

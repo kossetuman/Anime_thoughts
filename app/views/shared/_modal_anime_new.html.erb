@@ -14,7 +14,7 @@
             <label for="title">タイトル</label>
               <%= f.text_field :title, autfoucus: true, autocomplete: 'title', placeholder: "アニメのタイトルを入力して下さい", class: "form-control" %>
               <% if @anime.errors.include?(:title) %>
-                <div class="text-danger"><%= @anime.errors.full_messages_for(:title).first %></div>
+                <div class="alert alert-danger mt-1"><%= @anime.errors.full_messages_for(:title).first %></div>
               <% end %>
           </div>
 
@@ -22,7 +22,7 @@
             <label for="thought">感想</label>
               <%= f.text_area :thought, placeholder: "感想や評価を入力して下さい", class: "form-control" %>
                <% if @anime.errors.include?(:thought) %>
-                <div class="text-danger"><%= @anime.errors.full_messages_for(:thought).first %></div>
+                <div class="alert alert-danger mt-1"><%= @anime.errors.full_messages_for(:thought).first %></div>
               <% end %>
           </div>
 
@@ -43,9 +43,9 @@
             half: true,
           });
           </script>
-          
+
           <% if @anime.errors.include?(:rate) %>
-            <div class="text-danger"><%= @anime.errors.full_messages_for(:rate).first %></div>
+            <div class="alert alert-danger mt-1"><%= @anime.errors.full_messages_for(:rate).first %></div>
           <% end %>
 
           <div class="form-group">

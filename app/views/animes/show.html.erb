@@ -3,7 +3,7 @@
     <div class="col-md-12 mt-3">
       <div class="anime-title user-picture d-flex">
         <%= link_to user_path(@anime.user.id) do %>
-          <%= attachment_image_tag @anime.user, :image, format: 'jpeg', fallback: "no_image_user.png" %>
+          <%= attachment_image_tag @anime.user, :image, format: 'jpeg', fallback: "no_image_user.jpg" %>
         <% end %>
         <h2 class="ml-2"><%= @anime.title %></h2>
       </div>
@@ -68,7 +68,7 @@
                 <div class="card-body p-2">
                   <div class="d-flex align-items-center">
                     <div>
-                      <%= attachment_image_tag comment.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.png" %>
+                      <%= attachment_image_tag comment.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.jpg" %>
                     </div>
                     <div class="mr-2 ml-1">
                       <%= comment.user.name %>
@@ -103,7 +103,7 @@
                         <% comment.replies.each do |replie| %>
                           <div class="d-flex align-items-center">
                             <div>
-                              <%= attachment_image_tag replie.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.png" %>
+                              <%= attachment_image_tag replie.user, :image, class: "user-picture-comment", format: 'jpeg', fallback: "no_image_user.jpg" %>
                             </div>
                             <div class="mr-2 ml-1">
                               <%= replie.user.name %>

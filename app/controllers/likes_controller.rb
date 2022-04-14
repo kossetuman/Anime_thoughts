@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
   def create
     @like = current_user.likes.create(anime_id: params[:anime_id])
-    # binding.irb
+    #binding.irb
     @anime = Anime.find(params[:anime_id])
     @anime.create_notification_by(current_user)
     #binding.irb
