@@ -15,6 +15,11 @@ class AnimesController < ApplicationController
       @user = User.find(params[:anime][:user_id])
       @anime_show = Anime.where(user_id: @user)
       @anime_show = @anime_show.page(params[:page]).per(10)
+      respond_to do |format|
+        format.html {render :html => "show.h"}
+        format.js
+      end
+
     end
   end
 
@@ -45,10 +50,11 @@ class AnimesController < ApplicationController
 
   def destroy
     anime = Anime.find(params[:id])
-    if anime.destroy
+    if anime.user == current_user
+      anime.destroy
       redirect_to user_path(anime.user.id)
     else
-      render :show
+      redirect_to user_path(current_user)
     end
   end
 
