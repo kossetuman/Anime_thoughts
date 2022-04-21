@@ -52,7 +52,7 @@ RSpec.describe AnimesController, type: :controller do
               title: "test",
               thought: "hoge",
               rate: 1,
-              user_id: 1
+              user_id: @anime.user.id
             }
           }
         }.to change(Anime, :count).by(1)
@@ -86,9 +86,15 @@ RSpec.describe AnimesController, type: :controller do
           }
         }.to_not change(Anime, :count)
       end
-      it "302レスポンスが返ってきているか？" do
-        get :create
-        expect(response).to have_http_status "302"
+      context '非ログインユーザーの場合' do
+        it '302レスポンスが返ってきているか？' do
+          get :create
+          expect(response).to have_http_status "302"
+        end
+        it 'ログイン画面にリダイレクトされているか？' do
+          get :create
+          expect(response).to redirect_to "/users/sign_in"
+        end
       end
     end
   end
@@ -179,16 +185,6 @@ RSpec.describe AnimesController, type: :controller do
         expect(response).to render_template(:edit)
       end
     end
-    context '非ログインユーザーの場合' do
-      it '302レスポンスが返ってきているか？' do
-        get :create
-        expect(response).to have_http_status "302"
-      end
-      it 'ログイン画面にリダイレクトされているか？' do
-        get :create
-        expect(response).to redirect_to "/users/sign_in"
-      end
-    end
   end
 
   describe "#destroy" do
@@ -199,7 +195,7 @@ RSpec.describe AnimesController, type: :controller do
           delete :destroy, params: { id: @anime.id }
         }.to change(Anime, :count).by(-1)
       end
-      it "記事の削除後にusers/showへリダイレクトされるか？" do
+      it "投稿の削除後にusers/showへリダイレクトされるか？" do
         sign_in @anime.user
         delete :destroy, params: { id: @anime.id }
         expect(response).to redirect_to "/users/#{@anime.user.id}"

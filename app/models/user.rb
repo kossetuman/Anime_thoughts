@@ -62,5 +62,9 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_active == false)
   end
+  
+  def current_user
+    
+  end  
 
 end

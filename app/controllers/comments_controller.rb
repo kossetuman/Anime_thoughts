@@ -1,12 +1,14 @@
 
 class CommentsController < ApplicationController
-
+ before_action :authenticate_user!
+ 
   def create
     @anime = Anime.find(params[:anime_id])
     @comment = current_user.comments.new(comment_params)
     @comment.anime_id = @anime.id
     @comment.save
     redirect_back(fallback_location: root_path)
+  
   end
 
   def edit
