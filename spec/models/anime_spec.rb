@@ -11,6 +11,7 @@ RSpec.describe Anime, type: :model do
         anime.title = nil
         is_expected.to eq false
       end
+
     end
     context 'thoughtカラムのバリデーション' do
       it '存在していない場合は無効であること' do
