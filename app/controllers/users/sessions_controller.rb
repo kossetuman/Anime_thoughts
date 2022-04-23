@@ -38,4 +38,5 @@ class Users::SessionsController < Devise::SessionsController
         flash[:notice] = '項目を入力してください。'
       end
     end  
-end
+  end
+end  
