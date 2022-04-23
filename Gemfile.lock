@@ -97,6 +97,10 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -155,6 +159,7 @@ GEM
     msgpack (1.4.5)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.3)
@@ -319,12 +324,14 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
+  dotenv-rails
   factory_bot_rails
   faker
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
+  mysql2
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.7)
