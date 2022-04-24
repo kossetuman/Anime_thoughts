@@ -33,7 +33,7 @@
 
 ## 設計書
 -WBS
-https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
+https://docs.google.com/spreadsheets/d/1BDsRBqp_LBc_7iET5lLmoxo-HoS4hqOjQcBRWw0WMCI/edit#gid=1773513600
 
 -テーブル定義書
 https://docs.google.com/spreadsheets/d/1-PledjNPwuYBRTbIUydu2CR83Z_kzWpcB98KKnFqVmo/edit#gid=2034983829
