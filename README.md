@@ -32,15 +32,16 @@
 
 
 ## 設計書
-#WBS
+-WBS
 https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
 
-#テーブル定義書
+-テーブル定義書
 https://docs.google.com/spreadsheets/d/1-PledjNPwuYBRTbIUydu2CR83Z_kzWpcB98KKnFqVmo/edit#gid=2034983829
 
-#アプリケーション詳細設計書
-https://docs.google.com/spreadsheets/d/1UnaN6j4gObjNWXNGKGX_rahFJEmlOgUe8Msux1_uKKo/edit#gid=549108681
-#ER図
+-アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1UnaN6j4gObjNWXNGKGX_rahFJEmlOgUe8Msux1_uKKo/edit#gid=549108681</br>
+
+-ER図
 https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
 
 ## チャレンジ要素一覧
