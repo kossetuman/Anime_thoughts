@@ -1,9 +1,9 @@
 <footer class="fixed-bottom text-center border-top text-lg-start" style="background-color: #fdeef5">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0 0.2);">
-    <img src="/assets/favicon_a.ico" alt="">© 2022 Copyright:
+    <%= image_tag asset_path("favicon_a.ico") %>© 2022 Copyright:
     <div class="unsubscribe">
       <%= link_to '退会する', unsubscribe_confirmation_users_path, class: 'nav-link' %>
     </div>
   </div>
-  
+
 </footer>
