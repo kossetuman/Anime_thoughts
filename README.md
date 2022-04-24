@@ -55,6 +55,3 @@ https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8m
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
--
-
