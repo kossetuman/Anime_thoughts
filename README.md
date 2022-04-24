@@ -32,20 +32,25 @@
 
 
 ## 設計書
-<!--WBS-->
+#WBS
 https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
-<!--テーブル定義書-->
+
+#テーブル定義書
 https://docs.google.com/spreadsheets/d/1-PledjNPwuYBRTbIUydu2CR83Z_kzWpcB98KKnFqVmo/edit#gid=2034983829
-<!--アプリケーション詳細設計書-->
+
+#アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1UnaN6j4gObjNWXNGKGX_rahFJEmlOgUe8Msux1_uKKo/edit#gid=549108681
+#ER図
+https://app.diagrams.net/?pages=1&sketch=1#G1veuTi698VWptiI7Wsoa1UavcIMmPpnhb
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8mlTg/edit#gid=0
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(AmazonEC2(Amazon Linux release 2 (Karoo))
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
+- CSSフレームワーク : Bootstrap 4
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
