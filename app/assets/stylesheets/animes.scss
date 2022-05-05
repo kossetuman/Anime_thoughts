@@ -32,3 +32,8 @@
 .thought-text {
   letter-spacing: 0.1em;
 }
+
+//Anime.created_atのカラー統一(適用箇所: index・show)
+.anime_created_at{
+  color: rgba(0, 0, 0, 0.6);
+}
