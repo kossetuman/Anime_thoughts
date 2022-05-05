@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :create, :update] do
       resources :notifications, only: :index
       resource :relationship, only: [:create, :destroy]
-      get :followings, on: :member
-      get :followers, on: :member
-    collection do
-      get '/profile/:id', to: 'users#profile', as: "profile"
-      #退会確認画面
-      get :unsubscribe_confirmation
-      #論理削除用のルーティング
-      patch '/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-    end
+      collection do
+        #退会確認画面
+        get :unsubscribe_confimation
+        #論理削除用のルーティング
+        patch :withdrawal
+      end
+      member do
+        get :followings
+        get :followers
+        get :profile
+      end  
   end
 
   #homes/controller

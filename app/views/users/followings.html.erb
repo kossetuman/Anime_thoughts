@@ -17,7 +17,7 @@
           <tr>
             <td><%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%" %></td>
             <td>
-              <%= link_to  profile_users_path(user) do %>
+              <%= link_to  profile_user_path(user) do %>
                <%= user.name %>
               <% end %>
             </td>
