@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
   def edit
     @anime = Anime.find(params[:anime_id])
     @comment = Comment.find(params[:id])
-  end
+    if @comment.user != current_user
+      redirect_to user_path(current_user)
+    end
+  end  
 
   def update
     @anime = Anime.find(params[:anime_id])
