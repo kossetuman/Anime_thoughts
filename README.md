@@ -54,4 +54,3 @@ https://docs.google.com/spreadsheets/d/1KdlxH7zSL1el2qoPBP6pZKM8TTDU9ajT5OX6JO8m
 - CSSフレームワーク : Bootstrap 4
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
