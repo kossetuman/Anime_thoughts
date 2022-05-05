@@ -22,7 +22,7 @@
             <tr>
               <td><%= link_to anime.title, anime_path(anime.id) %></td>
               <td></td>
-              <td></td>
+              <td><small class="text-secondary"><%= l anime.created_at %></small></td>
             </tr>
             <% end %>
           </tbody>

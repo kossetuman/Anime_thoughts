@@ -23,11 +23,13 @@
       </div>
 
       <div class="form-group">
-        <label><%= f.radio_button :sex, :man %>男</label>
-        <label><%= f.radio_button :sex, :woman %>女</label>
+        <div><label for="sex">性別</label></div>
+        <label><%= f.radio_button :sex, User.sexes.key(0) %>男</label>
+        <label><%= f.radio_button :sex, User.sexes.key(1) %>女</label>
       </div>
 
       <div class="form-group">
+        <div><label for="birth_date">生年月日</label></div>
         <%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930,
         end_year: (Time.now.year - 10),
         default: Date.new(2000, 1, 1), class: "form-control" %>

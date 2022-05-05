@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum sex: {man: 1, woman: 2}
+  enum sex: {男: 0, 女: 1}
 
   has_many :animes, dependent: :destroy
 
@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   validates :name,
     presence: true,
-    length: { in: 1..8}
+    length: { in: 1..10}
 
   def is_followed_by?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?

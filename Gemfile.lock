@@ -101,6 +101,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -325,6 +327,7 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   devise-i18n
   dotenv-rails
+  enum_help
   factory_bot_rails
   faker
   jbuilder (~> 2.5)
