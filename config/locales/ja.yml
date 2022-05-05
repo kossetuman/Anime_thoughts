@@ -3,3 +3,12 @@ ja:
     formats:
       default: "%Y年%m月%d日 %H時%M分"
       short: "%Y年%m月%d日"
+      
+ja:
+  activerecord:
+    attributes:
+      anime:
+        title: タイトル
+        thought: 感想
+        rate: 評価
+        

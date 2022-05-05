@@ -86,7 +86,6 @@ gem 'kaminari'
 #検索機能
 gem 'ransack'
 
-
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
