@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.find_by(email: "test1@gmail.com") == nil ? User.create!(name: "hoge1", email: "test1@gmail.com", password: "111111", sex: "man", birth_date: "2022-01-01", introduction: "アニメ大好きです。これからも時間が許す限りたくさんアニメを見ようと思います。") : User.find_by(email: "test1@gmail.com")
-user2 = User.find_by(email: "test2@gmail.com") == nil ? User.create!(name: "hoge2", email: "test2@gmail.com", password: "222222", sex: "woman", birth_date: "1999-11-11", introduction: "アニメ大好きです。これからも時間が許す限りたくさんアニメを見ようと思います。", image: File.open("./app/assets/images/man.png")) : User.find_by(email: "test2@gmail.com")
+user1 = User.find_by(email: "test1@gmail.com") == nil ? User.create!(name: "hoge1", email: "test1@gmail.com", password: "111111", sex: "男", birth_date: "2022-01-01", introduction: "アニメ大好きです。これからも時間が許す限りたくさんアニメを見ようと思います。") : User.find_by(email: "test1@gmail.com")
+user2 = User.find_by(email: "test2@gmail.com") == nil ? User.create!(name: "hoge2", email: "test2@gmail.com", password: "222222", sex: "女", birth_date: "1999-11-11", introduction: "アニメ大好きです。これからも時間が許す限りたくさんアニメを見ようと思います。", image: File.open("./app/assets/images/man.png")) : User.find_by(email: "test2@gmail.com")
 user3 = User.find_by(email: "test3@gmail.com") == nil ? User.create!(name: "hoge3", email: "test3@gmail.com", password: "333333", image: File.open("./app/assets/images/chara.jpg")) : User.find_by(email: "test3@gmail.com")
 
 
