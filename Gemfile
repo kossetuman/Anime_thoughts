@@ -76,7 +76,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
 
-#日本語化
+# 日本語化
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 gem 'enum_help'
@@ -90,6 +90,4 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
-
 
