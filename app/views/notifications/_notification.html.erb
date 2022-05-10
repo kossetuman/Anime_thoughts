@@ -7,7 +7,7 @@
         <div class="col-md-8 mx-auto">
           <div class="form-inline">
             <%= attachment_image_tag visitor, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image_user.jpg", style: "border-radius:50%", class: "mr-1" %>
-            <%= link_to  profile_users_path(visitor) do %>
+            <%= link_to  profile_user_path(visitor) do %>
               <strong class="text-primary"><%= visitor.name %></strong>
             <% end %>
             さんが
