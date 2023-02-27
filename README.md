@@ -1,4 +1,4 @@
-# MyMyAnime
+# MyAnime
 
 ## サイト概要
 本サイトはSNS機能付きレビユーサイトです。
